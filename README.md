@@ -12,7 +12,7 @@
 
 ## Especificações
 <div align="center">
-  <img src="./.github/1.PNG" />
+  <img src="./.github/1.png" />
 </div>
 <br />
 
@@ -31,5 +31,5 @@
 
 <br />
 <div align="center">
-  <img src="./.github/2.PNG" />
+  <img src="./.github/2.png" />
 </div>
