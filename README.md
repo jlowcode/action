@@ -27,7 +27,7 @@ O plugin `Action List` permite adicionar uma nova ação na linha de ações de 
 
 ## Uso
 
-Após realizar as configurações necessárias inserindo o script e os parâmetros desejados, o `Botão de Ação` aparecerá no topo da lista e, ao ser clicado executará o script indicado (PHP ou Javascript), em seguida será exibido a `Mensagem de sucesso`, caso tenha sido configurada.
+Após realizar as configurações necessárias inserindo os parâmetros desejados e o script, o `Botão de Ação` aparecerá no topo da lista e, ao ser clicado executará o script indicado (PHP ou Javascript), em seguida será exibido a `Mensagem de sucesso`, caso tenha sido configurada.
 
 <br />
 <div align="center">
