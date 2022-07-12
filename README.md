@@ -16,7 +16,7 @@
 </div>
 <br />
 
-- Nível de Acesso: Determina o nível de acesso do usuário que ve a ação.
+- Nível de Acesso: Determina o nível de acesso do usuário que vê a ação.
 - Tipo de Ação: Mostra um botão que executa um código php ou imprime o resultado do código php (return da função) ignorando o botão.
 - Tipo de código: Se será executado um código PHP ou código Javascript
 - Texto do botão: Rótulo do botão
