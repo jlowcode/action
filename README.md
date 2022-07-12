@@ -8,7 +8,7 @@
 
 
 ## Sobre
-<p>O plugin Action List permite adicionar uma nova ação na linha de ações de uma lista. O plugin pode funcionar em um conjunto com um módulo ou com um código próprio em PHP ou Javascript, o script cadastrado será executado assim que o usuário clicar no botão. A ação é exibida conforme a configuração do nível de acesso.</p>
+<p>O plugin Action List permite adicionar uma nova ação na linha de ações de uma lista. Este plugin pode funcionar em conjunto com um módulo ou com códigos próprios em PHP ou Javascript, o script cadastrado será executado assim que o usuário clicar no botão. A ação é exibida conforme a configuração do nível de acesso.</p>
 
 ## Especificações
 <div align="center">
@@ -17,7 +17,7 @@
 <br />
 
 - Nível de Acesso: Determina o nível de acesso do usuário que vê a ação.
-- Tipo de Ação: Mostra um botão que executa um código php ou imprime o resultado do código php (return da função) ignorando o botão.
+- Tipo de Ação: Mostra um botão que executa um código PHP ou imprime o resultado do código PHP (return da função) ignorando o botão.
 - Tipo de código: Se será executado um código PHP ou código Javascript
 - Texto do botão: Rótulo do botão
 - Ícone do botão: O ícone exibido no botão (pode ficar em branco).
@@ -27,7 +27,7 @@
 
 ## Uso
 
-<p>Após a configuração do botão com os parâmetros desejados e com o script devidamente configurado, o botão aparecerá no topo da lista e executará o script PHP ou Javascript ao ser clicado e a mensagem exibida logo após caso configurada.</p>
+<p>Após realizar as configuração inserindo o script e os parâmetros desejados, um botão aparecerá no topo da lista e, ao ser clicado exibirá a mensagem logo após, caso configurada, e executará o script PHP ou Javascript .</p>
 
 <br />
 <div align="center">
