@@ -21,8 +21,8 @@ O plugin `Action List` permite adicionar uma nova ação na linha de ações de 
 - `Tipo de código`: Indicar a linguagem do código a ser executado - PHP ou Javascript.
 - `Texto do botão`: Rótulo do botão.
 - `Ícone do botão`: O ícone exibido no botão (pode ficar em branco).
-- `Código PHP`: O código a ser executado caso selecionado Tipo PHP
-- `Código Javascript`: O código a ser executado caso selecionado Tipo Javascript
+- `Código PHP`: O código a ser executado caso selecionado Tipo PHP.
+- `Código Javascript`: O código a ser executado caso selecionado Tipo Javascript.
 - `Mensagem de sucesso`: Mensagem a ser exibida após a execução caso julgue necessário.
 
 ## Uso
