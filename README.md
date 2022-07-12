@@ -27,7 +27,7 @@
 
 ## Uso
 
-<p>Após realizar as configuração inserindo o script e os parâmetros desejados, um botão aparecerá no topo da lista e, ao ser clicado exibirá a mensagem logo após, caso configurada, e executará o script PHP ou Javascript .</p>
+<p>Após realizar as configurações necessárias inserindo o script e os parâmetros desejados, o ``Botão Ação´´ aparecerá no topo da lista e, ao ser clicado executará o script selecionado (PHP ou Javascript), exibindo a mensagem de finalização logo após, caso configurada, </p>
 
 <br />
 <div align="center">
