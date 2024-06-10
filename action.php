@@ -171,14 +171,29 @@ class PlgFabrik_ListAction extends plgFabrik_List
 	*/
 	protected function loadJS($opts) {
 		$optsJson = json_encode($opts);
+		$this->opts = $optsJson;
 		$jsFiles = array();
 		$jsFiles['Fabrik'] = 'media/com_fabrik/js/fabrik.js';
 		$jsFiles['FabrikAction'] = '/plugins/fabrik_list/action/action.js';
 		// $script = "var workflow = new FabrikAction($options);";
 		$script = "var fabrikAction = new FabrikAction($optsJson);";
-		FabrikHelperHTML::script($jsFiles, $script);
+		//FabrikHelperHTML::script($jsFiles, $script);
 	}
 	
+	public function onloadJavascriptInstance($args)
+    {
+		parent::onLoadJavascriptInstance($args);
+
+        $this->jsInstance = "new FbListAction({$this->opts})";
+
+        return true;
+    }
+
+    public function loadJavascriptClassName_result()
+    {
+        return 'FbListAction';
+    }
+
 	/*
 	* Function run on when list is being loaded
 	* Used to trigger the init function
