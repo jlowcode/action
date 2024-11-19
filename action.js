@@ -11,20 +11,27 @@ define(['jquery', 'fab/fabrik'], function (jQuery, Fabrik) {
 
         initialize: function (options) { 
             // Init options
-            this.options = options;
+            this.options = JSON.parse(options);
             // Get the button
             var actionButton = jQuery('.actionButton');
 
-            if(options['functionType'] == 'phpReturn') {
-               this.setPHPReturn(actionButton);
-            } else if (options['functionType'] == 'phpTrigger') {
-                this.setPHPTrigger(actionButton);
-            } else if (options['functionType'] == 'jsReturn') {
-                this.processJavascript(actionButton);
-            } else if(options['functionType'] == 'jsTrigger') {
-                this.createButtonJSTrigger(actionButton);
+            switch (this.options.functionType) {
+                case 'phpReturn':                
+                    this.setPHPReturn(actionButton);
+                    break;
+                
+                case 'phpTrigger':
+                    this.setPHPTrigger(actionButton);
+                    break;
+                
+                case 'jsReturn':      
+                    this.processJavascript(actionButton);
+                    break;
+
+                case 'jsTrigger':
+                    this.createButtonJSTrigger(actionButton);
+                    break;
             }
-            
         },
 
         /*
