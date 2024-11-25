@@ -4,9 +4,10 @@
  * @copyright: Copyright (C) 2019-2020, PITT - All rights reserved.
  * @license  : GNU/GPL http           :                              //www.gnu.org/copyleft/gpl.html
  */
-define(['jquery', 'fab/fabrik'], function (jQuery, Fabrik) {
+define(['jquery', 'fab/fabrik', 'fab/list-plugin'], function (jQuery, Fabrik, FbListPlugin) {
     var FbListAction = new Class({
-        
+        Extends   : FbListPlugin,
+
         // Implements: [Events],
 
         initialize: function (options) { 
