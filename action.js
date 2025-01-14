@@ -4,27 +4,35 @@
  * @copyright: Copyright (C) 2019-2020, PITT - All rights reserved.
  * @license  : GNU/GPL http           :                              //www.gnu.org/copyleft/gpl.html
  */
-define(['jquery', 'fab/fabrik'], function (jQuery, Fabrik) {
+define(['jquery', 'fab/fabrik', 'fab/list-plugin'], function (jQuery, Fabrik, FbListPlugin) {
     var FbListAction = new Class({
-        
+        Extends   : FbListPlugin,
+
         // Implements: [Events],
 
         initialize: function (options) { 
             // Init options
-            this.options = options;
+            this.options = JSON.parse(options);
             // Get the button
             var actionButton = jQuery('.actionButton');
 
-            if(options['functionType'] == 'phpReturn') {
-               this.setPHPReturn(actionButton);
-            } else if (options['functionType'] == 'phpTrigger') {
-                this.setPHPTrigger(actionButton);
-            } else if (options['functionType'] == 'jsReturn') {
-                this.processJavascript(actionButton);
-            } else if(options['functionType'] == 'jsTrigger') {
-                this.createButtonJSTrigger(actionButton);
+            switch (this.options.functionType) {
+                case 'phpReturn':                
+                    this.setPHPReturn(actionButton);
+                    break;
+                
+                case 'phpTrigger':
+                    this.setPHPTrigger(actionButton);
+                    break;
+                
+                case 'jsReturn':      
+                    this.processJavascript(actionButton);
+                    break;
+
+                case 'jsTrigger':
+                    this.createButtonJSTrigger(actionButton);
+                    break;
             }
-            
         },
 
         /*

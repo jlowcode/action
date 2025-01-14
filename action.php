@@ -28,7 +28,8 @@ class PlgFabrik_ListAction extends plgFabrik_List
 	/*
 	* Init function
 	*/
-	protected function init() {
+	protected function init() 
+	{
 		$this->aclParam = 'table_action_access';
 		// Verify permission to use the plugin
 		$canUse = $this->canUse('table_action_access');
@@ -78,9 +79,6 @@ class PlgFabrik_ListAction extends plgFabrik_List
 				$opts->functionReturn = $functionReturn;
 
 			}
-
-
-
 		} else if ($actionType == 1){
 			/* Run function on click a button */
 
@@ -107,26 +105,22 @@ class PlgFabrik_ListAction extends plgFabrik_List
 				$phpCode = $params->get('table_action_code');
 				// Set function string 
 				$opts->phpCode = $phpCode;	
-			}
-			
-			
-					
+			}		
 		}
 		
 		// Load the JS code and pass the opts
 		$this->loadJS($opts);
-
-
 	}
 
 	/* 
 	* run the php code
 	* Ajax functions must to be public 
 	*/
-	public function onProcessPHPAction() {
+	public function onProcessPHPAction() 
+	{
 		$filter = JFilterInput::getInstance();
 		$request = $filter->clean($_REQUEST, 'array');
-		$phpCode = $request['phpString'];
+		$phpCode = $request['phpString'];	
 		$response = new StdClass;
 		try {
 			// Run the code
@@ -141,53 +135,63 @@ class PlgFabrik_ListAction extends plgFabrik_List
 		}		
 	}
 
-
 	/*
 	* Run PHP code and get the return to button
 	*/
-	protected function runFunctionGetReturn() {
+	protected function runFunctionGetReturn() 
+	{
 		// Get the params
 		$params = $this->getParams();
 		// Gets the code from database
 		$phpCode = $params->get('table_action_code');
-		
+
 		try {
 			// Run the code
 			$functionReturn = eval($phpCode);
 			return $functionReturn;
-			
 		} catch (ParseError $e) {
 			// Report error
 			echo 'Error on executing PHP: ',  $e->getMessage(), "\n";
 			return -1;
 		}
-
 	}
-	
-	
-	
+
 	/*
 	* Function to load the javascript code for the plugin
 	*/
-	protected function loadJS($opts) {
+	protected function loadJS($opts) 
+	{
 		$optsJson = json_encode($opts);
-		$jsFiles = array();
-		$jsFiles['Fabrik'] = 'media/com_fabrik/js/fabrik.js';
-		$jsFiles['FabrikAction'] = '/plugins/fabrik_list/action/action.js';
-		// $script = "var workflow = new FabrikAction($options);";
-		$script = "var fabrikAction = new FabrikAction($optsJson);";
-		FabrikHelperHTML::script($jsFiles, $script);
+		$this->opts = $optsJson;
 	}
-	
+
+	public function onloadJavascriptInstance($args)
+    {
+		parent::onLoadJavascriptInstance($args);
+		$this->init();
+		$opts = json_encode($this->opts);
+
+        $this->jsInstance = "new FbListAction({$opts})";
+
+        return true;
+    }
+
+    public function loadJavascriptClassName_result()
+    {
+        return 'FbListAction';
+    }
+
 	/*
 	* Function run on when list is being loaded
 	* Used to trigger the init function
 	*/
-	public function onLoadData(&$args) {
+	public function onLoadData(&$args) 
+	{
 		$this->init();
 	}
 
-	public function canUse($location = null, $event = null) {
+	public function canUse($location = null, $event = null) 
+	{
 		$aclParam = $this->aclParam;
 		if ($aclParam == '')
 		{
